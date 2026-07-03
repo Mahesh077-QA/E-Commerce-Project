@@ -5,9 +5,23 @@ import { defineConfig, devices } from '@playwright/test';
  * Read environment variables from file.
  * https://github.com/motdotla/dotenv
  */
-// import dotenv from 'dotenv';
-// import path from 'path';
-// dotenv.config({ path: path.resolve(__dirname, '.env') });
+
+const dotenv = require('dotenv');
+
+const ENV = process.env.ENV || 'qa';
+//load env files
+dotenv.config({
+  path: `env/.env.${ENV}`
+
+});
+// Fail fast if env is broken
+if (!process.env.BASE_URL) {
+  throw new Error('❌ BASE_URL is not defined. Check your .env file');
+}
+
+console.log(`Running tests on: ${ENV}`);
+console.log(`Base URL: ${process.env.BASE_URL}`);
+
 
 /**
  * @see https://playwright.dev/docs/test-configuration
@@ -21,13 +35,17 @@ export default defineConfig({
   /* Retry on CI only */
   retries: process.env.CI ? 2 : 0,
   /* Opt out of parallel tests on CI. */
-  workers: process.env.CI ? 1 : undefined,
+  workers: process.env.CI ? 1 : 1,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: 'html',
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('')`. */
     // baseURL: 'http://localhost:3000',
+     
+    baseURL: process.env.BASE_URL,
+    headless:false,
+  
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
@@ -40,7 +58,7 @@ export default defineConfig({
       use: { ...devices['Desktop Chrome'] },
     },
 
-    {
+    /*{
       name: 'firefox',
       use: { ...devices['Desktop Firefox'] },
     },
@@ -48,7 +66,7 @@ export default defineConfig({
     {
       name: 'webkit',
       use: { ...devices['Desktop Safari'] },
-    },
+    },*
 
     /* Test against mobile viewports. */
     // {
