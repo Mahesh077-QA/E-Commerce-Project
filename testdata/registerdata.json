@@ -1,0 +1,55 @@
+{
+  "validUser": {
+    "firstName": "John",
+    "lastName": "Doe",
+    "address": "123 Main St",
+    "city": "New York",
+    "state": "NY",
+    "zipCode": "10001",
+    "phone": "5551234567",
+    "ssn": "123-45-6789",
+    "username": "johndoe2026",
+    "password": "Pass123!",
+    "confirmPassword": "Pass123!"
+  },
+  "duplicateUser": {
+    "firstName": "John",
+    "lastName": "Doe",
+    "address": "123 Main St",
+    "city": "New York",
+    "state": "NY",
+    "zipCode": "10001",
+    "phone": "5551234567",
+    "ssn": "123-45-6789",
+    "username": "john",
+    "password": "Pass123!",
+    "confirmPassword": "Pass123!"
+  },
+  "mismatchPasswordUser": {
+    "firstName": "Jane",
+    "lastName": "Smith",
+    "address": "456 Side St",
+    "city": "Los Angeles",
+    "state": "CA",
+    "zipCode": "90001",
+    "phone": "5557654321",
+    "ssn": "987-65-4321",
+    "username": "janesmith2026",
+    "password": "Pass123!",
+    "confirmPassword": "WrongPass!"
+  },
+  "missingFieldsUser": {
+    "firstName": "",
+    "lastName": "",
+    "address": "",
+    "city": "",
+    "state": "",
+    "state": "",
+    "zipCode": "",
+    "phone": "",
+    "ssn": "",
+    "username": "",
+    "password": "",
+    "confirmPassword": ""
+  }
+}
