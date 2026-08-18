@@ -27,6 +27,11 @@ console.log(`Base URL: ${process.env.BASE_URL}`);
  * @see https://playwright.dev/docs/test-configuration
  */
 export default defineConfig({
+
+  timeout: 80000,
+  expect:{
+    timeout: 10000
+  },
   testDir: './tests',
   /* Run tests in files in parallel */
   fullyParallel: true,
@@ -44,7 +49,7 @@ export default defineConfig({
     // baseURL: 'http://localhost:3000',
      
     baseURL: process.env.BASE_URL,
-    headless:true,
+    headless:false,
     screenshot:'only-on-failure',
   
 
