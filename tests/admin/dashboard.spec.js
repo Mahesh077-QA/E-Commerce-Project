@@ -44,7 +44,7 @@ test('verify theam toggule dark and light modes', async({page})=>{
     await dashboardpage.verifylighttheam()
 })
 
-test.only('verify recent transactions', async({page})=>{
+test('verify recent transactions', async({page})=>{
     await login.fillLogindetails(admindata.adminUserName, admindata.adminPassword)
     await login.signinclick()
     await expect(page.getByText('Welcome back, Admin')).toBeVisible()
