@@ -1,0 +1,6 @@
+{
+    "adminUserName": "admin_user",
+    "adminPassword": "admin_sauce",
+    "adminInvalidUserName": "adminpage",
+    "adminInvalidPassword": "password"
+}
