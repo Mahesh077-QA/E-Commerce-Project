@@ -44,7 +44,7 @@ export default defineConfig({
     // baseURL: 'http://localhost:3000',
      
     baseURL: process.env.BASE_URL,
-    headless:false,
+    headless:true,
     screenshot:'only-on-failure',
   
 
